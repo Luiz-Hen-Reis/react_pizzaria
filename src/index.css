@@ -1,13 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--main-font);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+  --clr-red: #b02c2c;
+  --clr-yellow: #d6f00d;
+  --clr-alabaster: #dfd4bf;
+  --clr-description: #999;
+  --clr-soft-blue: rgb(111, 61, 219);
+  --clr-blue: #9ABAD8;
+  --header-title: "Silkscreen", cursive;
+  --main-font: "Libre Baskerville", serif;
+  --border-radius: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    width: 980px;
+    margin: auto;
+  }
 }

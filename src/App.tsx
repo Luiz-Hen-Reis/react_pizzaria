@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { CartSideDisplay, PizzaArea, PizzaMenu, Wrapper } from "./App.styles";
+import { CartSideMenu, Header, PizzaItem } from "./components";
+import { pizzas } from "./data/Pizzas";
+import { RootState } from "./redux/store";
 
-function App() {
+const App = () => {
+  const { cart } = useSelector((state: RootState) => state.cart);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <div>
+        <Header />
+        <PizzaArea>
+          <h1>Pizzas</h1>
+          <PizzaMenu>
+            {pizzas.map((pizza, index) => (
+              <PizzaItem pizza={pizza} key={index} />
+            ))}
+          </PizzaMenu>
+        </PizzaArea>
+      </div>
+      {cart.length > 0 &&  (
+        <CartSideDisplay>
+          <CartSideMenu cartItems={cart} />
+        </CartSideDisplay>
+      )}
+    </Wrapper>
   );
-}
+};
 
 export default App;
